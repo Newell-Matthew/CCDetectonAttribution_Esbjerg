@@ -1,1 +1,1 @@
-
+The jupyter notebooks included in this repository are used for verifying, modifying, and transforming the precipitation data. Specifically, notebooks for resampling of the ClimEx data, bias correction of the model data, creation of .csv files combining global mean surface temperature (GMST) and precipitation, and plotting scripts are included. 
