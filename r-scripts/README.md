@@ -1,1 +1,3 @@
+The R scripts used in this analysis are based on the World Weather Attribution's (WWAs) methodology for the detection and attribution of extreme climate events. The R scripts rely on the R library from the WWA, which can be accessed and downloaded via the WWAs github repository. Available at: https://github.com/WorldWeatherAttribution
 
+This repository contains three primary files 'rwwa-mwe_01_attribution.R', 'rwwa-mwe_01_attribution_may-sept.R', and 'rwwa-mwe_01_attribution_small_domain.R'. The files are identical, but are linked to data for the main analysis, a sensitivity analysis focused on the warm season, and a sensitivty analyis on a smaller sampling domain. This repository also contains R files for modified plots. 
