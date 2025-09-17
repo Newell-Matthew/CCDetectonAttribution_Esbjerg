@@ -6,6 +6,10 @@
 - Performing sampling method (Rx1day) and linking to global mean surface temperature (GMST) anomaly
 - **Employing the standardized protocol of the World Weather Attribution as detailed by Philip et al. (2020) and Otto et al. (2024)**
 
+Philip, S., Kew, S., van Oldenborgh, G.J., Otto, F., Vautard, R., van der Wiel, K., King, A., Lott, F., Arrighi, J., Singh, R., van Aalst, M., 2020. A protocol for probabilistic extreme event attribution analyses. Adv Stat Climatol Meteorol Oceanogr 6, 177–203. https://doi.org/10.5194/ascmo-6-177-2020
+
+Otto, F.E.L., Barnes, C., Philip, S., Kew, S., Van Oldenborgh, G.J., Vautard, R., 2024. Formally combining different lines of evidence in extreme-event attribution. Adv Stat Climatol Meteorol Oceanogr 10, 159–171. https://doi.org/10.5194/ascmo-10-159-2024 
+
 This repository contains **jupyter notebooks (for the preparation of observations and model data)** and **R scripts (for the detection and attribution of the extreme rainfall event)**.
 
 ---
@@ -22,7 +26,7 @@ The observation and model datasets used in this analysis are publicly available.
 
   Muñoz-Sabater, J., Dutra, E., Agustí-Panareda, A., Albergel, C., Arduini, G., Balsamo, G., Boussetta, S., Choulga, M., Harrigan, S., Hersbach, H., Martens, B., Miralles,     D.G., Piles, M., Rodríguez-Fernández, N.J., Zsoter, E., Buontempo, C., Thépaut, J.-N., 2021. ERA5-Land: A state-of-the-art global reanalysis dataset for land                 applications.   Earth Syst Sci Data 13, 4349–4383. https://doi.org/https://doi.org/10.5194/essd-13-4349-2021
 
-- **Copernicus European Regional Reanalysis (CERRA-) Reanalysis:** Precipitation data from CERRA are publicly available from the Copernicus Climate Data Store. Available at: https://cds.climate.copernicus.eu/datasets/reanalysis-cerra-single-levels
+- **Copernicus European Regional Reanalysis (CERRA) Reanalysis:** Precipitation data from CERRA are publicly available from the Copernicus Climate Data Store. Available at: https://cds.climate.copernicus.eu/datasets/reanalysis-cerra-single-levels
 
   Copernicus Climate Change Service (C3S), 2022b. CERRA sub-daily regional reanalysis data for Europe on single levels from 1984 to present. [Dataset]. Copernicus Climate      Change Service (C3S) Climate Data Store (CDS). https://doi.org/10.24381/cds.622a565a 
 
