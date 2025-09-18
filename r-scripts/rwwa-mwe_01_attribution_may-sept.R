@@ -13,20 +13,20 @@ library(rwwa)
 # containing integer-valued years.
 
 # load covariate data
-gmst <- read.csv("O:\\Man\\Public\\sharing-4270-CERM\\MATNEW\\CC_det_attr\\Time Series CSV\\GMST_anomalies.csv", col.names = c("year", "GMST"), sep = ";", header = TRUE)
+gmst <- read.csv("\\..\\GMST_anomalies.csv", col.names = c("year", "GMST"), sep = ";", header = TRUE)
 
 
 # load time series of interest
-ts_station <- read.csv("O:\\Man\\Public\\sharing-4270-CERM\\MATNEW\\CC_det_attr\\May_Sept\\annual_max_pr_station_may_september.csv", col.names = c("year", "pr"), sep = ";", header = TRUE)
-ts_era5 <- read.csv("O:\\Man\\Public\\sharing-4270-CERM\\MATNEW\\CC_det_attr\\May_Sept\\annual_max_pr_era5land_may_september.csv", col.names = c("year", "pr"), sep = ";", header = TRUE)
-ts_cerra <- read.csv("O:\\Man\\Public\\sharing-4270-CERM\\MATNEW\\CC_det_attr\\May_Sept\\annual_max_cerra_may_september.csv", col.names = c("year", "pr"), sep = ";", header = TRUE)
+ts_station <- read.csv("\\..\\annual_max_pr_station_annual_may_september.csv", col.names = c("year", "pr"), sep = ";", header = TRUE)
+ts_era5 <- read.csv("\\..\\annual_max_pr_era5land_annual_may_september.csv", col.names = c("year", "pr"), sep = ";", header = TRUE)
+ts_cerra <- read.csv("\\..\\annual_max_pr_cerra_annual_may_september.csv", col.names = c("year", "pr"), sep = ";", header = TRUE)
 
 
 #load historical model time series
-model_climex_hist <- read.csv("O:\\Man\\Public\\sharing-4270-CERM\\MATNEW\\CC_det_attr\\May_Sept\\CLIMEX\\annual_max_pr_CLIMEXI_hist_may_september.csv", col.names = c("year", "pr", "GMST"), sep = ";", header = TRUE)
+model_climex_hist <- read.csv("\\..\\annual_max_pr_CLIMEXI_hist_may_september.csv", col.names = c("year", "pr", "GMST"), sep = ";", header = TRUE)
 
 #load future model time series
-model_climex_fut <- read.csv("O:\\Man\\Public\\sharing-4270-CERM\\MATNEW\\CC_det_attr\\May_Sept\\CLIMEX\\annual_max_pr_CLIMEXI_fut_may_september.csv", col.names = c("year", "pr", "GMST"), sep = ";", header = TRUE)
+model_climex_fut <- read.csv("\\..\\annual_max_pr_CLIMEXI_fut_may_september.csv", col.names = c("year", "pr", "GMST"), sep = ";", header = TRUE)
 
 
 # combine into single dataframe
@@ -133,8 +133,8 @@ plot_returnlevels_fix(mdl_cerra, cov_f = cov_2024, cov_cf = cov_1900, nsamp = 10
 res_era5 <- boot_ci(mdl_era5, cov_f = cov_2024, cov_cf = cov_1900, ev = rl_era5_2024, nsamp = 1000)
 res_cerra <- boot_ci(mdl_cerra, cov_f = cov_2024, cov_cf = cov_1900, ev = rl_cerra_2024, nsamp = 1000)
 
-write.csv(res_era5, "O:/Man/Public/sharing-4270-CERM/MATNEW/CC_det_attr/May_Sept/obs_reanalysis/res_ERA5-Land.csv")
-write.csv(res_cerra, "O:/Man/Public/sharing-4270-CERM/MATNEW/CC_det_attr/May_Sept/obs_reanalysis/res_CERRA.csv")
+write.csv(res_era5, "\\..\\res_ERA5-Land.csv")
+write.csv(res_cerra, "\\..\\res_CERRA.csv")
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 # > Bootstrap results (station)                                                       ####
@@ -148,7 +148,7 @@ res_stn <- boot_ci(mdl_stn, cov_f = cov_2024, cov_cf = cov_1900, ev = 144.6, nsa
 res_stn
 
 # save the results for synthesis with the climate models later
-write.csv(res_stn, "O:/Man/Public/sharing-4270-CERM/MATNEW/CC_det_attr/May_Sept/obs_reanalysis/res_Station.csv")
+write.csv(res_stn, "\\..\\res_Station.csv")
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 # > compile the results from all observations into a single file                      ####
@@ -158,20 +158,20 @@ write.csv(res_stn, "O:/Man/Public/sharing-4270-CERM/MATNEW/CC_det_attr/May_Sept/
 
 # Compile results
 res <- t(sapply(
-  list.files(path = "O:/Man/Public/sharing-4270-CERM/MATNEW/CC_det_attr/May_Sept/obs_reanalysis/", pattern = "\\.csv$", full.names = TRUE),
+  list.files(path = "\\..\\", pattern = "\\.csv$", full.names = TRUE),
   read.csv,
   row.names = "X"
 ))
 
 # Use filename without path and without ".csv"
 rownames(res) <- sapply(
-  list.files(path = "O:/Man/Public/sharing-4270-CERM/MATNEW/CC_det_attr/May_Sept/obs_reanalysis/",pattern = "\\.csv$", full.names = TRUE),
+  list.files(path = "\\..\\",pattern = "\\.csv$", full.names = TRUE),
   function(fnm) sub("res_", "", sub("\\.csv$", "", basename(fnm)))
 )
 
 
 # Save to CSV
-write.csv(res, file = "O:/Man/Public/sharing-4270-CERM/MATNEW/CC_det_attr/May_Sept/obs_reanalysis/res_obs.csv")
+write.csv(res, file = "\\..\\res_obs.csv")
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 # Fit the same nonstationary model for climate models                                 ####
@@ -194,7 +194,7 @@ plot_returnlevels_fix(mdl_climex_hist, cov_f = cov_2024, cov_cf = cov_1900, nsam
 
 res_climex <- boot_ci(mdl_climex_hist, cov_f = cov_2024, cov_cf = cov_1900, ev = rl_climex_2024, nsamp = 1000)
 
-write.csv(res_climex, "O:/Man/Public/sharing-4270-CERM/MATNEW/CC_det_attr/May_Sept/CLIMEX/res_CLIMEX/res_CLIMEX.csv")
+write.csv(res_climex, "\\..\\res_CLIMEX.csv")
 
 mdl_climex_fut <- refit(mdl_climex_hist, model_climex_fut)
 
@@ -206,15 +206,15 @@ res_climex_2deg <- process_ci_df(res_climex_2deg)
 res_climex_3deg <- process_ci_df(res_climex_3deg)
 
 
-write.csv(res_climex_2deg, "O:/Man/Public/sharing-4270-CERM/MATNEW/CC_det_attr/May_Sept/CLIMEX/res_CLIMEX/res_CLIMEX_2deg.csv")
-write.csv(res_climex_3deg, "O:/Man/Public/sharing-4270-CERM/MATNEW/CC_det_attr/May_Sept/CLIMEX/res_CLIMEX/res_CLIMEX_3deg.csv")
+write.csv(res_climex_2deg, "\\..\\res_CLIMEX_2deg.csv")
+write.csv(res_climex_3deg, "\\..\\res_CLIMEX_3deg.csv")
 
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # We can now loop over the climate models and repeat the statistical analysis
 
 # list all the available climate model time series
-for(fnm in list.files(path = "O:\\Man\\Public\\sharing-4270-CERM\\MATNEW\\CC_det_attr\\May_Sept\\CORDEX\\", pattern = "\\.csv$", full.names = T)) {
+for(fnm in list.files(path = "\\..\\", pattern = "\\.csv$", full.names = T)) {
   print(fnm)
   
   # extract filenames etc
@@ -269,7 +269,7 @@ for(fnm in list.files(path = "O:\\Man\\Public\\sharing-4270-CERM\\MATNEW\\CC_det
   print(mdl_trend)
 
   # Build the new save path
-  save_path_2deg <- paste0("O:\\Man\\Public\\sharing-4270-CERM\\MATNEW\\CC_det_attr\\May_Sept\\CORDEX\\2deg\\", model_name, ".csv")
+  save_path_2deg <- paste0("\\..\\", model_name, ".csv")
 
   write.csv(res_df, file = save_path_2deg)
   
@@ -280,20 +280,20 @@ for(fnm in list.files(path = "O:\\Man\\Public\\sharing-4270-CERM\\MATNEW\\CC_det
 
 # Compile results
 res <- t(sapply(
-  list.files(path = "O:\\Man\\Public\\sharing-4270-CERM\\MATNEW\\CC_det_attr\\May_Sept\\CORDEX\\2deg\\", pattern = "\\.csv$", full.names = TRUE),
+  list.files(path = "\\..\\", pattern = "\\.csv$", full.names = TRUE),
   read.csv,
   row.names = "X"
 ))
 
 # Use filename without path and without ".csv"
 rownames(res) <- sapply(
-  list.files(path = "O:\\Man\\Public\\sharing-4270-CERM\\MATNEW\\CC_det_attr\\May_Sept\\CORDEX\\2deg\\", pattern = "\\.csv$", full.names = TRUE),
+  list.files(path = "\\..\\", pattern = "\\.csv$", full.names = TRUE),
   function(fnm) sub("\\.csv$", "", basename(fnm))
 )
 
 
 # Save to CSV
-write.csv(res, file = "O:\\Man\\Public\\sharing-4270-CERM\\MATNEW\\CC_det_attr\\May_Sept\\CORDEX\\2deg_aggregate\\res_cordex_2deg_may_september.csv")
+write.csv(res, file = "\\..\\res_cordex_2deg_may_sept.csv")
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 # Synthesis
@@ -317,16 +317,16 @@ write.csv(res, file = "O:\\Man\\Public\\sharing-4270-CERM\\MATNEW\\CC_det_attr\\
 # Advances in Statistical Climatology, Meteorology and Oceanography (2024).
 
 # load the obs 
-obs_res <- read.csv("O:/Man/Public/sharing-4270-CERM/MATNEW/CC_det_attr/May_Sept/obs_reanalysis/res_obs.csv", row.names = "X")
-model_res <- read.csv("O:/Man/Public/sharing-4270-CERM/MATNEW/CC_det_attr/May_sept/CORDEX/2deg_aggregate/res_cordex_2deg_may_september.csv", row.names = "X")
-model_ensemble_res <- read.csv("O:\\Man\\Public\\sharing-4270-CERM\\MATNEW\\CC_det_attr\\May_Sept\\CLIMEX\\res_CLIMEX\\res_CLIMEX_ensemble_add_models.csv", row.names = "X")
+obs_res <- read.csv("\\..\\res_obs_may-sept.csv", row.names = "X")
+model_res <- read.csv("\\..\\res_cordex_2deg_may_sept.csv", row.names = "X")
+model_ensemble_res <- read.csv("\\..\\res_CLIMEX_CORDEX_ensembles_may-sept.csv", row.names = "X")
 
 #load the cordex
-model_res_3deg <- read.csv("O:/Man/Public/sharing-4270-CERM/MATNEW/CC_det_attr/May_Sept/CORDEX//3deg_aggregate/res_cordex_3deg_may_september.csv", row.names = "X")
+model_res_3deg <- read.csv("\\..\\res_cordex_3deg_may_sept.csv", row.names = "X")
 
 #load the ensembles (climex & cordex)
-model_ensemble_2deg <- read.csv("O:\\Man\\Public\\sharing-4270-CERM\\MATNEW\\CC_det_attr\\May_sept\\CLIMEX\\res_CLIMEX\\res_CLIMEX_ensemble_2deg_add_models.csv", row.names = "X")
-model_ensemble_3deg <- read.csv("O:\\Man\\Public\\sharing-4270-CERM\\MATNEW\\CC_det_attr\\May_Sept\\CLIMEX\\res_CLIMEX\\res_CLIMEX_ensemble_3deg_add_models.csv", row.names = "X")
+model_ensemble_2deg <- read.csv("\\..\\res_CLIMEX_CORDEX_ensembles_2deg_may-sept.csv", row.names = "X")
+model_ensemble_3deg <- read.csv("\\..\\res_CLIMEX_CORDEX_ensembles_3deg_may-sept.csv", row.names = "X")
 
 
 # run the synthesis
@@ -444,4 +444,5 @@ synth_dI_proj_2deg$df[34,]$model <- "Ensembles"
 #Plot
 par(mar = c(5, 27, 4, 2))
 plot_synthesis_fut(synth_dI_proj_2deg, hide_labels = TRUE)
+
 
