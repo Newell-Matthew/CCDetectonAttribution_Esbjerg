@@ -10,7 +10,7 @@ Philip, S., Kew, S., van Oldenborgh, G.J., Otto, F., Vautard, R., van der Wiel, 
 
 Otto, F.E.L., Barnes, C., Philip, S., Kew, S., Van Oldenborgh, G.J., Vautard, R., 2024. Formally combining different lines of evidence in extreme-event attribution. Adv Stat Climatol Meteorol Oceanogr 10, 159–171. https://doi.org/10.5194/ascmo-10-159-2024 
 
-This repository contains **jupyter notebooks (for the preparation of observations and model data)** and **R scripts (for the detection and attribution of the extreme rainfall event)**.
+This repository contains **jupyter notebooks (for the preparation of observations and model data)**, **CSV files for the attribution analysis**, and **R scripts (for the detection and attribution of the extreme rainfall event)**.
 
 ---
 
