@@ -1,1 +1,1 @@
-
+This repository contains the files to run the final synthesis portion of the 'rwwa' R scripts. It contains the final files for the main analysis and the two sensitivity analyses (smaller domain size and warm season (May-September)). 
