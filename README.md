@@ -34,6 +34,8 @@ The observation and model datasets used in this analysis are publicly available.
 
 - **Station Data:** Precipitation data from the Danish Meteorological Institute are publicly availale from a technical report and DMI's API. Precipitation data used in the analysis are sourced from two stations. The data for Station #6088 (1872-2020) is available at: https://www.dmi.dk/fileadmin/Rapporter/2021/DMIRep21-02.zip. The data from Station #5340 (2021-2025) can be accessed via DMI's API at: https://opendatadocs.dmi.govcloud.dk/en/Data/Meteorological_Observation_Data.
 
+  Cappelen, J., 2021. Denmark – DMI Historical Climate Data Collection 1768-2020. DMI Report 21-02. Copenhagen, DK: Danish Meteorological Institute. https://www.dmi.dk/fileadmin/Rapporter/2021/DMIRep21-02.pdf. 
+
 - **Historical Global Temperature Data:** Data on the historical global mean surface temperature are publicly available from Berkeley Earth. Available at: https://berkeleyearth.org/data/
 
   Rohde, R.A., Hausfather, Z., 2020. The Berkeley Earth Land/Ocean Temperature Record. Earth Syst Sci Data 12, 3469–3479. https://doi.org/10.5194/ESSD-12-3469-2020 
